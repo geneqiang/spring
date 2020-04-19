@@ -1,0 +1,18 @@
+name: spring docker
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+
+  build:
+
+    runs-on: amazoncorretto:11.0.6
+
+    steps:
+    - uses: 11112055
+    - name: myspring
+      run: docker build . --file Dockerfile --tag myspring:$(date +%s)
